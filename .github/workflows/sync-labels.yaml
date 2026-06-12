@@ -1,5 +1,9 @@
 name: Labels Sync
 
+concurrency:
+  group: ${{ github.repository }}-${{ github.workflow }}-${{ inputs.org || github.repository_owner }}
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: '0 0 * * 0' # every Sunday at midnight

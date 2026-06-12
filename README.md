@@ -1,4 +1,4 @@
-# label-management
+# Label Management
 
 [![Continuous integration](https://github.com/stairwaytowonderland/label-management/actions/workflows/ci.yaml/badge.svg)](https://github.com/stairwaytowonderland/label-management/actions/workflows/ci.yaml)
 [![GitHub latest release](https://img.shields.io/github/v/release/stairwaytowonderland/label-management?include_prereleases&logo=rocket)](https://github.com/stairwaytowonderland/stairwaytowonderland/label-management/releases)
@@ -21,12 +21,12 @@ A centralized label management repository. :label:
 │   ├── workflows/
 │   │   ├── ci.yaml
 │   │   ├── conventional-commit.yaml
-│   │   ├── label-create.yaml
+│   │   ├── create-labels.yaml
 │   │   ├── import-csv-issues.yaml
 │   │   ├── pre-commit.yaml
 │   │   ├── publish.yaml
-│   │   ├── repository-created.yaml
 │   │   ├── release.yaml
+│   │   ├── repository-created.yaml
 │   │   └── sync-labels.yaml
 │   └── dependabot.yml
 ├── .editorconfig
@@ -35,9 +35,11 @@ A centralized label management repository. :label:
 ├── .pre-commit-config.yaml
 ├── .prettierignore
 ├── .prettierrc
+├── .releaserc
+├── CHANGELOG.md
 ├── LICENSE
 ├── README.md
-└── TODO.csv
+├── TODO.csv
 └── TODO.example.csv
 ```
 

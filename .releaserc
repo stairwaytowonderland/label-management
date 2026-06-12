@@ -69,14 +69,14 @@
 						},
 						{
 							"type": "chore",
-							"hidden": true
-						},
-						{
-							"type": "revert",
-							"hidden": true
+							"section": "🔧 Chores"
 						},
 						{
 							"type": "style",
+							"section": "🎨 Styles"
+						},
+						{
+							"type": "revert",
 							"hidden": true
 						}
 					]

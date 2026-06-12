@@ -9,21 +9,18 @@ on:
     inputs:
       dry-run:
         description: 'Dry run'
-        required: true
         type: boolean
         default: true
 
       csv-path:
         description: 'Path (relative) to the CSV file'
-        required: true
         type: string
         default: 'TODO.csv'
 
-      # ref:
-      #   description: 'Git ref of the shared actions repo to use (e.g. main or a specific tag/commit)'
-      #   required: false
-      #   type: string
-      #   default: 'v1'
+      ref:
+        description: 'Git ref of the shared actions repo to use (e.g. main or a specific tag/commit)'
+        type: string
+        default: 'v1'
 
 jobs:
   import-issues:
@@ -32,7 +29,7 @@ jobs:
     secrets:
       github-token: ${{ secrets.GH_PAT_CREATE_ISSUE }}
     with:
-      # ref: ${{ inputs.ref }}
+      ref: ${{ inputs.ref || '' }}
       batch: true
       csv-path: ${{ inputs.csv-path }}
       dry-run: ${{ inputs.dry-run }}

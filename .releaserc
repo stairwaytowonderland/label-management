@@ -2,15 +2,8 @@
 	"branches": [
 		"main"
 	],
-	"tagFormat": "v${version}",
 	"plugins": [
 		"semantic-release-export-data",
-		[
-			"@semantic-release/changelog",
-			{
-				"changelogFile": "CHANGELOG.md"
-			}
-		],
 		[
 			"@semantic-release/commit-analyzer",
 			{
@@ -76,18 +69,24 @@
 						},
 						{
 							"type": "chore",
-							"section": "🔧 Chores"
-						},
-						{
-							"type": "style",
-							"section": "🎨 Styles"
+							"hidden": true
 						},
 						{
 							"type": "revert",
 							"hidden": true
+						},
+						{
+							"type": "style",
+							"hidden": true
 						}
 					]
 				}
+			}
+		],
+		[
+			"@semantic-release/changelog",
+			{
+				"changelogFile": "CHANGELOG.md"
 			}
 		],
 		[

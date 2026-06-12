@@ -1,0 +1,4 @@
+Status,Priority,Effort,Title,Description,Completed
+,High,Low,[DOCUMENTATION] Change template links,"Change template links to match the new repository name",true
+new,Low,Low,[TASK] Run 'Create Labels' workflow,"Run the 'Create Labels' workflow",false
+new,Low,Low,[TASK] Create first issues,"Create the first issues for the repository",false

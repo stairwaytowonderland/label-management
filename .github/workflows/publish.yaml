@@ -1,0 +1,27 @@
+name: Publish a Release
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g. v1.2.3)'
+        type: string
+        required: true
+      notes-b64:
+        description: 'Base64-encoded release notes (Markdown)'
+        type: string
+        required: false
+    secrets:
+      github-token:
+        description: 'GitHub Personal Access Token with repo scope for creating releases.'
+        required: false
+
+jobs:
+  publish:
+    name: Publish
+    uses: stairwaytowonderland/actions/.github/workflows/publish.yaml@v1
+    with:
+      tag: ${{ github.ref_name || inputs.tag }}
+      notes-b64: ${{ inputs.notes-b64 }}
+    secrets:
+      github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_RELEASE }}

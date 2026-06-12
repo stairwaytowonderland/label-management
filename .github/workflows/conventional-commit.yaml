@@ -1,0 +1,21 @@
+name: Conventional Commit Check
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+  workflow_call:
+    inputs:
+      ref:
+        description: 'Git ref of the shared actions repo to use (e.g. main or a specific tag/commit)'
+        type: string
+        required: false
+        default: 'v1'
+
+jobs:
+  conventional-commit:
+    name: Run Conventional Commit Check
+    uses: stairwaytowonderland/actions/.github/workflows/conventional-commit.yaml@v1
+    with:
+      ref: ${{ inputs.ref }}

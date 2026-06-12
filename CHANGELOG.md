@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/stairwaytowonderland/label-management/compare/v1.1.0...v1.2.0) (2026-06-12)
+
+### ✨ Features
+
+* update .releaserc ([5c6e59a](https://github.com/stairwaytowonderland/label-management/commit/5c6e59a61c8a82d33eb880be4778f273288a5637))
+
 ## [1.1.0](https://github.com/stairwaytowonderland/label-management/compare/v1.0.0...v1.1.0) (2026-06-12)
 
 ### ✨ Features

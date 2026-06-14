@@ -66,9 +66,9 @@ jobs:
         uses: ./.actions/.github/actions/labels-sync-action
         with:
           org: ${{ inputs.org || github.repository_owner }}
-          dry-run: ${{ inputs.dry-run == true }}
+          dry-run: ${{ inputs.dry-run == true || true }}
           github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
-          update-existing: ${{ inputs.update-existing == true }}
+          update-existing: ${{ inputs.update-existing == true || false }}
           repos: |
             actions
             cpython
@@ -90,9 +90,9 @@ jobs:
         uses: stairwaytowonderland/actions/.github/actions/labels-sync-action@v1
         with:
           org: ${{ inputs.org || github.repository_owner }}
-          dry-run: ${{ inputs.dry-run == true }}
+          dry-run: ${{ inputs.dry-run == true || true }}
           github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
-          update-existing: ${{ inputs.update-existing == true }}
+          update-existing: ${{ inputs.update-existing == true || false }}
           repos: |
             actions
             cpython

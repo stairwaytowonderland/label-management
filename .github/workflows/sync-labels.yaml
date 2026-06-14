@@ -7,7 +7,7 @@ concurrency:
 on:
   schedule:
     # every day at 2:30 PM America/Chicago
-    - cron: '32 * * * *'
+    - cron: '40 * * * *'
       timezone: 'America/Chicago'
 
   workflow_call:

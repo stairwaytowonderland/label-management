@@ -6,7 +6,8 @@ concurrency:
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # every Sunday at midnight
+    # every day at 2:30 PM America/Chicago
+    - cron: '32 * * * *'
       timezone: 'America/Chicago'
 
   workflow_call:
@@ -67,7 +68,7 @@ jobs:
         with:
           org: ${{ inputs.org || github.repository_owner }}
           dry-run: ${{ inputs.dry-run == true }}
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
           update-existing: ${{ inputs.update-existing == true }}
           repos: |
             actions
@@ -91,7 +92,7 @@ jobs:
         with:
           org: ${{ inputs.org || github.repository_owner }}
           dry-run: ${{ inputs.dry-run == true }}
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
           update-existing: ${{ inputs.update-existing == true }}
           repos: |
             actions

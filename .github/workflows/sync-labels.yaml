@@ -6,8 +6,9 @@ concurrency:
 
 on:
   schedule:
-    # every Sunday at 2:50 PM America/Chicago
-    - cron: '*/5 * * * *'
+    # every Sunday at 2:00 AM America/Chicago
+    - cron: '0 2 * * 0'
+      timezone: America/Chicago
 
   workflow_call:
     inputs:

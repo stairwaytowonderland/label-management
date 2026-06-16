@@ -79,6 +79,7 @@ jobs:
             simple-workflow-dispatch
             ^cloudflare-.*$
             ^python-.*$
+            ^.*-management$
           repos-ignore: |
             ^\.github.*$
             ^deprecated-?.*$
@@ -102,9 +103,9 @@ jobs:
             simple-workflow-dispatch
             ^cloudflare-.*$
             ^python-.*$
-            ^repository-.*$
-            ^.*-template$
+            ^.*-management$
           repos-ignore: |
             ^\.github.*$
             ^deprecated-?.*$
             ^personal-?.*$
+            ^.*-template$

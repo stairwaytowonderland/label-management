@@ -79,12 +79,11 @@ jobs:
             simple-workflow-dispatch
             ^cloudflare-.*$
             ^python-.*$
-            ^repository-.*$
-            ^.*-template$
           repos-ignore: |
             ^\.github.*$
             ^deprecated-?.*$
             ^personal-?.*$
+            ^.*-template$
 
       - name: Sync labels
         if: inputs.ref == ''

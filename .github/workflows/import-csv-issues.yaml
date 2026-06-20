@@ -5,6 +5,9 @@ concurrency:
   cancel-in-progress: false
 
 on:
+  repository_dispatch:
+    types: [create-issues]
+
   workflow_dispatch:
     inputs:
       dry-run:
@@ -24,5 +27,5 @@ jobs:
     secrets: inherit
     with:
       batch: true
-      csv-path: ${{ inputs.csv-path }}
-      dry-run: ${{ inputs.dry-run }}
+      csv-path: ${{ inputs.csv-path || 'TODO.csv' }}
+      dry-run: ${{ inputs.dry-run || false }}

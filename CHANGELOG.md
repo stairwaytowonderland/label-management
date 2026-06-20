@@ -1,3 +1,9 @@
+## [1.16.0](https://github.com/stairwaytowonderland/label-management/compare/v1.15.0...v1.16.0) (2026-06-20)
+
+### ✨ Features
+
+* using app ([3ac7af2](https://github.com/stairwaytowonderland/label-management/commit/3ac7af2ee1ee14e5cea0a27b245bd629a45dfdba))
+
 ## [1.15.0](https://github.com/stairwaytowonderland/label-management/compare/v1.14.0...v1.15.0) (2026-06-20)
 
 ### ✨ Features

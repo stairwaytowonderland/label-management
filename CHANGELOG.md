@@ -1,3 +1,13 @@
+## [1.17.0](https://github.com/stairwaytowonderland/label-management/compare/v1.16.0...v1.17.0) (2026-06-20)
+
+### ✨ Features
+
+* update concurrency ([19d07f3](https://github.com/stairwaytowonderland/label-management/commit/19d07f319181c6e845e6d0ebe1977c4799069f52))
+
+### 🔧 Chores
+
+* **deps:** bump actions/checkout from 6 to 7 ([#1](https://github.com/stairwaytowonderland/label-management/issues/1)) ([7b11c4b](https://github.com/stairwaytowonderland/label-management/commit/7b11c4b1343b309efecd8c2e482d723224309380))
+
 ## [1.16.0](https://github.com/stairwaytowonderland/label-management/compare/v1.15.0...v1.16.0) (2026-06-20)
 
 ### ✨ Features

@@ -11,3 +11,4 @@ jobs:
   conventional-commit:
     name: Run Conventional Commit Check
     uses: stairwaytowonderland/actions/.github/workflows/conventional-commit.yaml@v1
+    secrets: inherit

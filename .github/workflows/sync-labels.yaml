@@ -41,59 +41,43 @@ on:
       update-existing:
         description: 'Whether to update existing labels (e.g. rename, change color/description).'
         type: boolean
-      ref:
-        description: 'Git ref of the shared actions repo to use (e.g. main or a specific tag/commit)'
-        type: string
 
 jobs:
+  repo-info:
+    name: Get repo info
+    runs-on: ubuntu-latest
+    outputs:
+      repo-owner: ${{ steps.repo-info.outputs.repo-owner }}
+      repo-name: ${{ steps.repo-info.outputs.repo-name }}
+    steps:
+      - name: Get repo info
+        id: repo-info
+        uses: stairwaytowonderland/actions/.github/actions/repo-info-action@v1
+        with:
+          owner: ${{ inputs.org }}
+
   sync-labels:
     runs-on: ubuntu-latest
+    needs: [repo-info]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v6
 
-      - name: Checkout shared actions repo
-        if: inputs.ref != ''
-        uses: actions/checkout@v6
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: actions/create-github-app-token@v3
         with:
-          repository: stairwaytowonderland/actions
-          ref: ${{ inputs.ref }}
-          path: ./.actions
-          sparse-checkout: |
-            .github
+          client-id: ${{ vars.ORG_REPO_USER_APP_ID }}
+          private-key: ${{ secrets.ORG_REPO_USER_PRIVATE_KEY }}
+          owner: ${{ needs.repo-info.outputs.repo-owner }}
 
       - name: Sync labels
-        if: inputs.ref != ''
-        uses: ./.actions/.github/actions/labels-sync-action
-        with:
-          org: ${{ inputs.org || github.repository_owner }}
-          dry-run: ${{ inputs.dry-run == true || true }}
-          github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
-          update-existing: ${{ inputs.update-existing == true || false }}
-          repos: |
-            actions
-            cpython
-            node-semantic-release
-            repository-create
-            resume-converter
-            simple-workflow-dispatch
-            ^cloudflare-.*$
-            ^python-.*$
-            ^.*-management$
-          repos-ignore: |
-            ^\.github.*$
-            ^deprecated-?.*$
-            ^personal-?.*$
-            ^.*-template$
-
-      - name: Sync labels
-        if: inputs.ref == ''
         uses: stairwaytowonderland/actions/.github/actions/labels-sync-action@v1
         with:
-          org: ${{ inputs.org || github.repository_owner }}
-          dry-run: ${{ inputs.dry-run == true || true }}
-          github-token: ${{ secrets.github-token || secrets.GH_PAT_CREATE_ISSUE }}
-          update-existing: ${{ inputs.update-existing == true || false }}
+          org: ${{ needs.repo-info.outputs.repo-owner }}
+          dry-run: ${{ inputs.dry-run == true }}
+          github-token: ${{ secrets.github-token || steps.generate-token.outputs.token }}
+          update-existing: ${{ inputs.update-existing == true }}
           repos: |
             actions
             cpython

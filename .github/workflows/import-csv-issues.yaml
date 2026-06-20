@@ -21,8 +21,7 @@ jobs:
   import-issues:
     name: Import Issues
     uses: stairwaytowonderland/issue-management/.github/workflows/import-csv-issues.yaml@v1
-    secrets:
-      github-token: ${{ secrets.GH_PAT_CREATE_ISSUE }}
+    secrets: inherit
     with:
       batch: true
       csv-path: ${{ inputs.csv-path }}

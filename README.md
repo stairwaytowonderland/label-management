@@ -59,8 +59,7 @@ uses: stairwaytowonderland/label-management/.github/workflows/create-labels.yaml
 with:
   dry-run: true
   update-labels: true
-secrets:
-  github-token: ${{ secrets.GH_PAT }}
+secrets: inherit
 ```
 
 **Inputs:**
@@ -90,8 +89,7 @@ uses: stairwaytowonderland/label-management/.github/workflows/sync-labels.yaml@m
 with:
   dry-run: true
   update-labels: true
-secrets:
-  github-token: ${{ secrets.GH_PAT }}
+secrets: inherit
 ```
 
 **Inputs:**

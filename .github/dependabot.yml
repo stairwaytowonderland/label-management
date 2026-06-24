@@ -10,8 +10,7 @@ updates:
   #   ignore:
   #     - dependency-name: '*'
   #       update-types: ['version-update:semver-major']
-  #   labels:
-  #     - 'dependencies'
+  #   labels: ['dependencies', 'deps:javascript']
   #   groups:
   #     npm:
   #       applies-to: version-updates
@@ -22,20 +21,20 @@ updates:
   #   directory: '/src/'
   #   schedule:
   #     interval: 'weekly'
-  #   labels: ['dependencies', 'python']
+  #   labels: ['dependencies', 'deps:python']
   #   open-pull-requests-limit: 5
   #   rebase-strategy: 'auto'
   # - package-ecosystem: 'docker'
   #   directory: '/docker/'
   #   schedule:
   #     interval: 'weekly'
-  #   labels: ['dependencies', 'docker']
+  #   labels: ['dependencies', 'deps:docker']
   #   open-pull-requests-limit: 5
   #   rebase-strategy: 'auto'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'weekly'
-    labels: ['dependencies', 'github-actions']
+    labels: ['dependencies', 'deps:github-actions']
     open-pull-requests-limit: 5
     rebase-strategy: 'auto'

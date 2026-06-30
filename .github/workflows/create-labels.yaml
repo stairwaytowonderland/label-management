@@ -19,9 +19,6 @@ on:
       update-existing:
         description: 'Whether to update existing labels (e.g. rename, change color/description).'
         type: boolean
-      ref:
-        description: 'Git ref of the shared actions repo to use (e.g. main or a specific tag/commit)'
-        type: string
     secrets:
       github-token:
         description: 'GitHub token for authentication'
@@ -77,7 +74,7 @@ jobs:
           owner: ${{ needs.repo-info.outputs.repo-owner }}
           repositories: ${{ needs.repo-info.outputs.repo-name }}
 
-      - name: Create labels (with default actions ref)
+      - name: Create labels
         uses: stairwaytowonderland/actions/.github/actions/labels-create-action@v1
         with:
           github-token: ${{ secrets.github-token || steps.generate-token.outputs.token }}
